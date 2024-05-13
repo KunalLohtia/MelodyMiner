@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "607574199940",
+    "project_id": "melodyminer-75453",
+    "storage_bucket": "melodyminer-75453.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607574199940:android:fa96affafe92c9d1a47cd1",
+        "android_client_info": {
+          "package_name": "com.melodyminer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607574199940-7e0b9166lte8dt3vrolnkqng9l3fg22u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApRGRbg402ZslNCt_WbHKQyxOw9Bhtvy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "607574199940-7e0b9166lte8dt3vrolnkqng9l3fg22u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "607574199940-mdk9n7m2cisk07tenok5h423h8n8fc65.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.MelodyMiner"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
