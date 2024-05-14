@@ -13,6 +13,7 @@ import Welcome from './src/screens/Welcome';
 import SignUp from './src/screens/SignUp';
 import Home from './src/screens/Home';
 import SignIn from './src/screens/SignIn';
+import Profile from './src/screens/Profile';
 import {useState, useEffect} from 'react';
 import {Text} from 'react-native';
 
@@ -42,17 +43,14 @@ const App = () => {
   }
 
   if (user) {
-    const logout = () => {
-      auth()
-        .signOut()
-        .then(() => console.log('User signed out!'));
-    };
     return (
       <>
-        <Text style={{margin: 40}}>Welcome</Text>
-        <Text onPress={logout} style={{margin: 40}}>
-          Log out
-        </Text>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Profile" component={Profile} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </>
     );
   }
@@ -63,7 +61,6 @@ const App = () => {
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );
