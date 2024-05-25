@@ -1696,9 +1696,9 @@
     semver "^7.5.2"
 
 "@react-native-firebase/app@^19.2.2":
-  version "19.2.2"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-19.2.2.tgz#71db0afdfaa41fff1fc75ce9f5c249eeeec393e3"
-  integrity sha512-yucIZT/n567XH+gU8Qf/Z8Awtrc0dadu0LYDJU/dq228DwoQa8xyCoDqXqVM2Ppj9R8csQ+ga4VdMYBSHblYQw==
+  version "19.3.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-19.3.0.tgz#d243d31ce0ed6082292a14d42ed11d536831018b"
+  integrity sha512-Y4Jlu7s7JasCcOktAN9LC+7SvMeAG04008OxtbhDK9rpatVznJqRSkMefIIwN2yBs94MWo9b61e+7v5IRMbQdw==
   dependencies:
     opencollective-postinstall "^2.0.3"
     superstruct "^0.6.2"
@@ -1709,6 +1709,11 @@
   integrity sha512-2TbbieNAmZSR3wqJZdQyFAT4vISESfvB3I3j/ll+3SS91fV2h0/H4xnBapoOEeXBGxioBGKXBOP3C4ySRXNV6g==
   dependencies:
     plist "^3.1.0"
+
+"@react-native-firebase/firestore@^19.2.2":
+  version "19.2.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-19.2.2.tgz#15eb2be51af6b7c8e406f3c6d1444c99c43b8048"
+  integrity sha512-SaW/f8vDwvP24KdCBo7uaBmE+5Y8JMKfWpOzJtY1XXuA7wlua3IjIilEXNVGrFk8az6N3n9RhCIpWbn4mOml9g==
 
 "@react-native-google-signin/google-signin@^11.0.1":
   version "11.0.1"
@@ -2311,6 +2316,11 @@ ajv@^6.12.4:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+all@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/all/-/all-0.0.0.tgz#fb2aa75d4759d40e39ecbb118fabf0cc11ff554f"
+  integrity sha512-0oKlfNVv2d+d7c1gwjGspzgbwot47PGQ4b3v1ccx4mR8l9P/Y6E6Dr/yE8lNT63EcAKEbHo6UG3odDpC/NQcKw==
 
 anser@^1.4.9:
   version "1.4.10"

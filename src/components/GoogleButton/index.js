@@ -7,13 +7,10 @@ import auth from '@react-native-firebase/auth';
 import {View, Alert} from 'react-native';
 import {WEB_CLIENT_ID} from '@env';
 
-//console.log(`This is the process environment ${WEB_CLIENT_ID}`);
 // use google sign in and access web client id
 GoogleSignin.configure({
   //WEB_CLIENT_ID,
-  webClientId:
-    // TO-DO: CHECK WHY THIS FAILS ON IOS BUILD
-    `${WEB_CLIENT_ID}`,
+  webClientId: `${WEB_CLIENT_ID}`,
 });
 
 async function onGoogleButtonPress() {

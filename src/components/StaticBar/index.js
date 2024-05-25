@@ -8,9 +8,11 @@ import {useNavigation} from '@react-navigation/native';
 import Home from '../../screens/Home';
 import Profile from '../../screens/Profile';
 
+// stack navigator
 const Stack = createStackNavigator();
 
 const StaticBar = () => {
+  // navigation functions on static bar
   const navigation = useNavigation();
 
   const handleTitlePress = () => {

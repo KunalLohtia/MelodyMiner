@@ -10,6 +10,9 @@ import {
 import styles from './styles';
 import Button from '../../components/Button';
 
+// welcome screen, takes in navigation prop
+// spalsh image with footer containing buttons taking user to
+// sign up or log in page
 const Welcome = ({navigation}) => {
   return (
     <View style={{flex: 1}}>

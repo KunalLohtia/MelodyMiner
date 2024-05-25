@@ -23,25 +23,32 @@ const Stack = createStackNavigator();
 const App = () => {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
+  // declare state variable user
   const [user, setUser] = useState();
 
-  // Handle user state changes
+  // Handle user state changes based on auth state changes
   function onAuthStateChanged(user) {
+    // sets  user state variable to value passed as user parameter
+    // updates state with new user object
     setUser(user);
     if (initializing) {
+      // finish initializing app by setting it to false
       setInitializing(false);
     }
   }
 
   useEffect(() => {
+    // subscribe to auth state changes, to see changes such as sign in or out
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);
 
+  // app returns null if still initializing
   if (initializing) {
     return null;
   }
 
+  // screens that are only accessible once a user exists / logs in
   if (user) {
     return (
       <>
@@ -54,7 +61,7 @@ const App = () => {
       </>
     );
   }
-
+  // the general screens you can see without logging in
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>

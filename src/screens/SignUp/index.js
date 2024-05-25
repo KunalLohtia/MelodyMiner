@@ -1,5 +1,6 @@
 import React from 'react';
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 import {
   Text,
   TextInput,
@@ -14,32 +15,54 @@ import styles from './styles';
 import Button from '../../components/Button';
 import {useState} from 'react';
 
+// sign up page, takes in navigation prop
 const SignUp = ({navigation}) => {
+  // state vars to update user information accordingly when signing up
   const [Firstname, onChangeFirstName] = React.useState('');
   const [Lastname, onChangeLastName] = React.useState('');
   const [email, onChangeemail] = React.useState('');
   const [pass, onChangePass] = React.useState('');
   const [confirmPass, onChangeconfirmPass] = React.useState('');
 
+  //function for when user creates an account
+
   const onSubmit = () => {
+    // check if password and confirm password match or alert and return
     if (pass !== confirmPass) {
       Alert.alert('Passwords do not match');
       return;
     }
+    // makes sure first name and last name is filled or alert and return
     if (!Firstname || !Lastname) {
       Alert.alert('Please enter first name and last name');
       return;
     }
+    // create new user with sign up info
     auth()
       .createUserWithEmailAndPassword(email, pass)
       .then(() => {
-        auth().currentUser.updateProfile({
+        const currUser = auth().currentUser;
+        currUser.updateProfile({
           displayName: '${Firstname} ${Lastname} ',
         });
       })
+
+      .then(() => {
+        // store the user's information in Firestore database
+        const currUser = auth().currentUser;
+        return firestore()
+          .collection('users')
+          .doc(currUser.uid)
+          .set({
+            email: currUser.email,
+            displayName: `${Firstname} ${Lastname}`,
+          });
+      })
+      // navigates user to home page
       .then(() => {
         navigation.navigate('Home');
       })
+      // error handling such as invalid email
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
           Alert.alert('That email address is already in use!');
@@ -52,6 +75,7 @@ const SignUp = ({navigation}) => {
         console.error(error);
       });
   };
+  // text inputs for users to fill out sign up info
   return (
     <SafeAreaView style={{flex: 1, marginHorizontal: 24}}>
       <ScrollView showsVerticalScrollIndicator={false}>
