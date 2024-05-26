@@ -2321,6 +2321,27 @@ PODS:
   - RNGoogleSignin (11.0.1):
     - GoogleSignIn (~> 7.0.0)
     - React-Core
+  - RNReanimated (3.11.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - SocketRocket (0.7.0)
   - Yoga (0.0.0)
 
@@ -2386,6 +2407,7 @@ DEPENDENCIES:
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - "RNGoogleSignin (from `../node_modules/@react-native-google-signin/google-signin`)"
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -2534,6 +2556,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNGoogleSignin:
     :path: "../node_modules/@react-native-google-signin/google-signin"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -2619,6 +2643,7 @@ SPEC CHECKSUMS:
   RNFBFirestore: 58f9f2f1d61eadcf16bf6d75737d92ad651bb264
   RNGestureHandler: 20a4307fd21cbff339abfcfa68192f3f0a6a518b
   RNGoogleSignin: 24d3b3261f78b0fae0aa013f8ab6f8d25e369b0c
+  RNReanimated: 82d44098f1640ac390d073bca26264d52a67dc7d
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   Yoga: 3f9165051bbc60b66f6a88c5eeafd9e9faa29500
 

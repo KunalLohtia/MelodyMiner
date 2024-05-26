@@ -16,10 +16,12 @@ const StaticBar = () => {
   const navigation = useNavigation();
 
   const handleTitlePress = () => {
+    console.log('got here');
     navigation.navigate('Home');
   };
 
   const handleProfilePress = () => {
+    console.log('got here');
     navigation.navigate('Profile');
   };
 

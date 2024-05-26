@@ -14,6 +14,7 @@ import SignUp from './src/screens/SignUp';
 import Home from './src/screens/Home';
 import SignIn from './src/screens/SignIn';
 import Profile from './src/screens/Profile';
+import Input from './src/screens/Input';
 import {useState, useEffect} from 'react';
 import {Text} from 'react-native';
 
@@ -56,6 +57,7 @@ const App = () => {
           <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Profile" component={Profile} />
+            <Stack.Screen name="Input" component={Input} />
           </Stack.Navigator>
         </NavigationContainer>
       </>
