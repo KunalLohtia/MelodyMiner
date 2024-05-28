@@ -87,7 +87,7 @@ const Home = ({navigation}) => {
 
       <HomeAlbumScroll imagesArray={imagesArray} />
 
-      <View style={{marginBottom: 5}}>
+      <View style={{marginBottom: 65}}>
         <Text style={styles.idText}>
           Find songs by
           <Text style={styles.artistName}>
@@ -97,9 +97,9 @@ const Home = ({navigation}) => {
         </Text>
       </View>
 
-      <View style={{paddingHorizontal: 46, marginTop: 15}}>
+      <View style={{paddingHorizontal: 46}}>
         <Button onPress={() => navigation.navigate('Input')}>
-          Get Started
+          Mine Melodies!
         </Button>
       </View>
     </View>

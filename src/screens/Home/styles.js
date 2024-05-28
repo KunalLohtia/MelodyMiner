@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     //borderColor: 'blue',
     //borderWidth: 2,
     marginTop: 100,
-    marginBottom: 35,
+    marginBottom: 25,
   },
   enter: {
     fontSize: 24,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     //borderColor: 'blue',
     //borderWidth: 2,
-    marginBottom: 30,
+    marginBottom: 50,
   },
   idText: {
     fontSize: 20,
