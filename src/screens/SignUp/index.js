@@ -95,12 +95,14 @@ const SignUp = ({navigation}) => {
             onChangeText={onChangeFirstName}
             value={Firstname}
             placeholder="First Name"
+            placeholderTextColor="#707070"
           />
           <TextInput
             style={styles.input}
             onChangeText={onChangeLastName}
             value={Lastname}
             placeholder="Last Name"
+            placeholderTextColor="#707070"
           />
           <TextInput
             style={styles.input}
@@ -108,6 +110,7 @@ const SignUp = ({navigation}) => {
             value={email}
             placeholder="Email"
             keyboardType="email-address"
+            placeholderTextColor="#707070"
           />
           <TextInput style={{height: 0.1}} />
           <TextInput
@@ -118,6 +121,7 @@ const SignUp = ({navigation}) => {
             secureTextEntry
             autoCorrect={false}
             textContentType="none"
+            placeholderTextColor="#707070"
           />
           <TextInput style={{height: 0.1}} />
           <TextInput
@@ -126,6 +130,7 @@ const SignUp = ({navigation}) => {
             value={confirmPass}
             placeholder="Confirm Password"
             secureTextEntry
+            placeholderTextColor="#707070"
           />
           <Button onPress={onSubmit}>Create Account</Button>
         </View>

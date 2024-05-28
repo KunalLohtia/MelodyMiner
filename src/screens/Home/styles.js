@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     //borderColor: 'blue',
     //borderWidth: 2,
-    marginTop: 100,
-    marginBottom: 25,
+    marginTop: 80,
+    marginBottom: 15,
   },
   enter: {
     fontSize: 24,
@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   idText: {
-    fontSize: 20,
+    fontSize: 19,
     color: '#4A2C25',
     textAlign: 'center',
   },
   artistName: {
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: 'bold',
     color: '#4A2C25',
     textAlign: 'center',

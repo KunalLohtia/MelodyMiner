@@ -14,8 +14,16 @@ const TrackInput = ({trackNum}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Track {trackNum}</Text>
-      <TextInput style={styles.input} placeholder="Track Name" />
-      <TextInput style={styles.input} placeholder="Artist Name" />
+      <TextInput
+        style={styles.input}
+        placeholder="Track Name"
+        placeholderTextColor="#707070"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Artist Name"
+        placeholderTextColor="#707070"
+      />
     </View>
   );
 };

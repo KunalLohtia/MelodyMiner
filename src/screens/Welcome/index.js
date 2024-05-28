@@ -30,7 +30,9 @@ const Welcome = ({navigation}) => {
           Get started on your song discovery journey!
         </Text>
         <Button onPress={() => navigation.navigate('SignIn')}>Log In</Button>
-        <Button onPress={() => navigation.navigate('SignUp')}>Sign Up</Button>
+        <Button onPress={() => navigation.navigate('SignUp')} type={'blue'}>
+          Sign Up
+        </Button>
       </View>
     </View>
   );

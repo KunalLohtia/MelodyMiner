@@ -14,7 +14,7 @@ import TrackInput from '../../components/TrackInput';
 import Button from '../../components/Button';
 import styles from './styles';
 
-const Input = () => {
+const Input = ({navigation}) => {
   // use state to manage the input rows
   // have row be an array of TrackInput objects
   // give each TrackInput a id starting with 1
@@ -31,8 +31,16 @@ const Input = () => {
     }
   };
 
-  const onSubmit = ({navigation}) => {
-    navigation.navigate('Results');
+  //removes most recent row from the rows array state var
+  const removeRow = () => {
+    if (rows.length > 1) {
+      // pops last element from array
+      rows.pop();
+      // Update state with modified array
+      setRows([...rows]);
+    } else {
+      Alert.alert('Limit Reached', 'You cannot remove anymore tracks.');
+    }
   };
 
   return (
@@ -55,7 +63,7 @@ const Input = () => {
 
       <Text
         style={{
-          fontSize: 20,
+          fontSize: 19,
           color: '#25434A',
           textAlign: 'center',
           marginBottom: 25,
@@ -65,7 +73,6 @@ const Input = () => {
       <View
         style={{
           flex: 0,
-          marginBottom: 5,
         }}>
         <ScrollView
           style={styles.scrollView}
@@ -78,11 +85,26 @@ const Input = () => {
         </ScrollView>
       </View>
 
-      <View style={{paddingHorizontal: 16}}>
-        <Button onPress={addRow}>Add Another Track</Button>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          paddingHorizontal: 20,
+        }}>
+        <View style={{flex: 1, marginRight: 10}}>
+          <Button onPress={addRow}>Add Track</Button>
+        </View>
+        <View style={{flex: 1, marginLeft: 10}}>
+          <Button onPress={removeRow} type={'blue'}>
+            Remove Track
+          </Button>
+        </View>
       </View>
-      <View style={{paddingHorizontal: 16}}>
-        <Button onPress={onSubmit}>Get Recommendations</Button>
+
+      <View style={{paddingHorizontal: 20}}>
+        <Button onPress={() => navigation.navigate('Results')}>
+          Get Recommendations
+        </Button>
       </View>
     </View>
   );

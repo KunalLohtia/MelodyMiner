@@ -4,6 +4,7 @@ import {
 } from '@react-native-google-signin/google-signin';
 import React from 'react';
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 import {View, Alert} from 'react-native';
 import {WEB_CLIENT_ID} from '@env';
 
@@ -24,7 +25,16 @@ async function onGoogleButtonPress() {
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
     // Sign-in the user with the credential
-    await auth().signInWithCredential(googleCredential);
+    const userCredential = await auth().signInWithCredential(googleCredential);
+
+    // Retrieve user's UID, display name, and email from userCredential object
+    const {uid, displayName, email} = userCredential.user;
+
+    // Store user to firestore
+    await firestore().collection('users').doc(uid).set({
+      displayName: displayName,
+      email: email,
+    });
 
     console.log(idToken);
 

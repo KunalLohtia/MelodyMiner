@@ -34,7 +34,7 @@ const Home = ({navigation}) => {
     {id: 'The Weeknd', imageSource: require('../../assets/dawnfm.jpg')},
 
     {
-      id: 'Your Next Favorite Artist',
+      id: 'A New Favorite Artist',
       imageSource: require('../../assets/Untitled.png'),
     },
   ];
@@ -101,7 +101,7 @@ const Home = ({navigation}) => {
         </Text>
       </View>
 
-      <View style={{paddingHorizontal: 16}}>
+      <View style={{paddingHorizontal: 20}}>
         <Button onPress={() => navigation.navigate('Input')}>
           Mine Melodies!
         </Button>

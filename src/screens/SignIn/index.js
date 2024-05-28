@@ -48,6 +48,7 @@ const SignIn = ({navigation}) => {
         value={email}
         placeholder="Email"
         keyboardType="email-address"
+        placeholderTextColor="#707070"
       />
       <TextInput
         style={styles.input}
@@ -55,6 +56,7 @@ const SignIn = ({navigation}) => {
         value={pass}
         placeholder="Password"
         secureTextEntry
+        placeholderTextColor="#707070"
       />
       <Button onPress={onSubmit}>Login</Button>
       <GoogleButton />
