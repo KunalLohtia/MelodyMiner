@@ -15,6 +15,7 @@ import Home from './src/screens/Home';
 import SignIn from './src/screens/SignIn';
 import Profile from './src/screens/Profile';
 import Input from './src/screens/Input';
+import Results from './src/screens/Results';
 import {useState, useEffect} from 'react';
 import {Text} from 'react-native';
 
@@ -58,6 +59,7 @@ const App = () => {
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="Input" component={Input} />
+            <Stack.Screen name="Results" component={Results} />
           </Stack.Navigator>
         </NavigationContainer>
       </>

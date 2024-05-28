@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     //borderColor: 'blue',
     //borderWidth: 2,
-    marginBottom: 50,
+    marginBottom: 40,
   },
   idText: {
     fontSize: 20,

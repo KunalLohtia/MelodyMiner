@@ -31,6 +31,10 @@ const Input = () => {
     }
   };
 
+  const onSubmit = ({navigation}) => {
+    navigation.navigate('Results');
+  };
+
   return (
     <View>
       <StaticBar />
@@ -76,6 +80,9 @@ const Input = () => {
 
       <View style={{paddingHorizontal: 16}}>
         <Button onPress={addRow}>Add Another Track</Button>
+      </View>
+      <View style={{paddingHorizontal: 16}}>
+        <Button onPress={onSubmit}>Get Recommendations</Button>
       </View>
     </View>
   );

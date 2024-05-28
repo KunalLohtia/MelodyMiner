@@ -24,11 +24,15 @@ const Home = ({navigation}) => {
   const imagesArray = [
     {id: 'Frank Ocean', imageSource: require('../../assets/blond.jpg')},
     {id: 'Sza', imageSource: require('../../assets/sos.jpg')},
-    {id: 'Tame Impala', imageSource: require('../../assets/currents.jpg')},
+    {id: 'Adele', imageSource: require('../../assets/30.jpg')},
+    {id: 'Steve Lacy', imageSource: require('../../assets/gemini.jpg')},
     {
       id: 'Tyler, the Creator',
       imageSource: require('../../assets/flowerboy.jpg'),
     },
+    {id: 'Tame Impala', imageSource: require('../../assets/currents.jpg')},
+    {id: 'The Weeknd', imageSource: require('../../assets/dawnfm.jpg')},
+
     {
       id: 'Your Next Favorite Artist',
       imageSource: require('../../assets/Untitled.png'),
@@ -87,7 +91,7 @@ const Home = ({navigation}) => {
 
       <HomeAlbumScroll imagesArray={imagesArray} />
 
-      <View style={{marginBottom: 65}}>
+      <View style={{marginBottom: 50}}>
         <Text style={styles.idText}>
           Find songs by
           <Text style={styles.artistName}>
@@ -97,7 +101,7 @@ const Home = ({navigation}) => {
         </Text>
       </View>
 
-      <View style={{paddingHorizontal: 46}}>
+      <View style={{paddingHorizontal: 16}}>
         <Button onPress={() => navigation.navigate('Input')}>
           Mine Melodies!
         </Button>
