@@ -3,9 +3,11 @@ import {View, Text} from 'react-native';
 import StaticBar from '../../components/StaticBar';
 
 const Results = ({route}) => {
-  const {results} = route.params;
-  //console.log('Reached');
-  //console.log(results);
+  // get entries array from input page
+  const {entries} = route.params;
+  console.log('Reached');
+  console.log(entries);
+
   return (
     <View>
       <StaticBar />

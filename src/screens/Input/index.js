@@ -59,7 +59,8 @@ const Input = ({navigation}) => {
   // async function for handling
   const onSubmit = async () => {
     try {
-      // use filter to create new array with only trackname and artistname true
+      // use filter to create new array with only items that have
+      // trackname and artistname filled (or true)
       // set each row's track and artist name as an elem of a new array
       // each elem is in the format "track: trackname artist: artistname"
       const queries = rows
@@ -70,28 +71,38 @@ const Input = ({navigation}) => {
 
       for (const query of queries) {
         // get JSON object of result by calling searchTracks function
+
         const result = await searchTracks(query);
 
-        console.log('printing result');
-        console.log(result);
+        //console.log('printing result');
+        //console.log(result);
 
-        // if result exists and has itmes for us to parse
-        if (result.tracks && result.tracks.items.length > 0) {
-          // get first item from tracks
-          const trackID = result.tracks.items[0].id;
-          console.log(`this is artist name ${result.tracks.artists[0].name}`);
-          console.log(`this is track name ${result.tracks.name}`);
-          console.log(`this is track id ${trackID}`);
-          // push trackID into allEntries array
-          allEntries.push(trackID);
-        }
+        // get track data (first and only item in JSON object result)
+        const data = result[0];
+
+        // if data exists and has items for us to parse
+
+        // get first item from tracks
+
+        //const artistName = data.artists[0].name;
+        //const trackName = data.name;
+
+        const trackID = data.id;
+
+        //console.log(`this is artist name ${artistName}`);
+        //console.log(`this is track name ${trackName}`);
+
+        console.log(`this is track id ${trackID}`);
+
+        // push trackID into allEntries array
+        allEntries.push(trackID);
       }
 
       // navigate to results page with allEntries as a route param
-      navigation.navigate('Results', {results: allEntries});
+      navigation.navigate('Results', {entries: allEntries});
     } catch (error) {
       // error if user can't get to results page
-      console.log('Error fethcing track recs');
+
       Alert.alert('Error', 'Unable to fetch track recommendations.');
     }
   };
