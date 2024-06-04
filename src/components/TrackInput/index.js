@@ -10,7 +10,7 @@ import {
 
 import styles from './styles';
 
-const TrackInput = ({trackNum}) => {
+const TrackInput = ({trackNum, onTrackNameChange, onArtistNameChange}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Track {trackNum}</Text>
@@ -18,11 +18,13 @@ const TrackInput = ({trackNum}) => {
         style={styles.input}
         placeholder="Track Name"
         placeholderTextColor="#707070"
+        onChangeText={onTrackNameChange}
       />
       <TextInput
         style={styles.input}
         placeholder="Artist Name"
         placeholderTextColor="#707070"
+        onChangeText={onArtistNameChange}
       />
     </View>
   );
