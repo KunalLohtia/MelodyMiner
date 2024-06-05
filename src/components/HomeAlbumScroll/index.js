@@ -9,7 +9,7 @@ const HomeAlbumScroll = ({imagesArray}) => {
 
   // render item function, takes in each image from array to render component
   const renderItem = ({item}) => (
-    // image component uses image source property to displau the image from item
+    // image component uses image source property to display the image from item
     <Image source={item.imageSource} style={styles.image} />
   );
 

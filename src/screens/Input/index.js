@@ -23,12 +23,12 @@ const Input = ({navigation}) => {
   const [rows, setRows] = useState([{id: 1, trackName: '', artistName: ''}]);
 
   // adds new blank row to the rows array state var with updated id
-  // limit user to just 10 tracks and give an alert if limit is reached
+  // limit user to just 5 tracks and give an alert if limit is reached
   const addRow = () => {
-    if (rows.length < 10) {
+    if (rows.length < 5) {
       setRows([...rows, {id: rows.length + 1, trackName: '', artistName: ''}]);
     } else {
-      Alert.alert('Limit Reached', 'You can only add up to 10 tracks.');
+      Alert.alert('Limit Reached', 'You can only add up to 5 tracks.');
     }
   };
 

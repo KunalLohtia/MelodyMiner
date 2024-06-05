@@ -38,6 +38,7 @@ const getAccessToken = async () => {
       },
     );
     // return access token
+    console.log('Access Token:', response.data.access_token);
     return response.data.access_token;
   } catch (error) {
     // error for failing to retrieve access token
@@ -67,6 +68,30 @@ export const searchTracks = async query => {
   } catch (error) {
     // error for endpoint failing
     console.error('Error searching tracks:', error);
+    throw error;
+  }
+};
+
+export const getRecs = async tracks => {
+  // access token used as a promise
+  const token = await getAccessToken();
+
+  const REC_URL = `https://api.spotify.com/v1/recommendations?seed_tracks=${tracks}&limit=10`;
+  console.log('Recommendation URL:', REC_URL);
+
+  try {
+    // retrieve url as a promise
+    const response = await axios.get(REC_URL, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // return the json response
+    console.log('Response Data:', response.data);
+    return response.data.tracks;
+  } catch (error) {
+    // error for endpoint failing
+    console.error('Error getting recs:', error);
     throw error;
   }
 };
