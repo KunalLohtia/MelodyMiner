@@ -10,9 +10,10 @@ import StaticBar from '../../components/StaticBar';
 import {getRecs} from '../../Spotify/SpotifyAPI';
 import styles from './styles';
 import Recommendation from '../../components/Recomendation';
+import Button from '../../components/Button';
 
-const Results = ({route}) => {
-  const {entries} = route.params;
+const Results = ({route, navigation}) => {
+  const {entries, resetFields} = route.params;
 
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,7 +22,7 @@ const Results = ({route}) => {
     const fetchRecs = async () => {
       try {
         const recs = await getRecs(entries.join(','));
-        console.log('Fetched Recommendations:', recs);
+        //console.log('Fetched Recommendations:', recs);
         setRecommendations(recs);
       } catch (error) {
         console.error('Error fetching recommendations:', error);
@@ -33,10 +34,7 @@ const Results = ({route}) => {
     fetchRecs();
   }, [entries]);
 
-  const handleLike = id => {
-    console.log(`Liked track with id: ${id}`);
-    // Handle the like action (e.g., update state, make API call, etc.)
-  };
+  const handleLike = id => {};
 
   const renderItem = ({item}) => (
     // track name
@@ -49,9 +47,11 @@ const Results = ({route}) => {
 
     <Recommendation
       trackName={item.name}
+      trackURL={item.external_urls.spotify}
       artistName={item.artists[0].name}
+      artistURL={item.artists[0].external_urls.spotify}
       albumName={item.album.name}
-      externalURL={item.external_urls.spotify}
+      albumURL={item.album.external_urls.spotify}
       previewURL={item.preview_url}
       img={item.album.images[0].url}
       id={item.id}
@@ -89,8 +89,18 @@ const Results = ({route}) => {
         data={recommendations}
         keyExtractor={item => item.id}
         renderItem={renderItem}
-        contentContainerStyle={{padding: 20}}
+        //contentContainerStyle={{padding: 20}}
+        style={{flexGrow: 3, maxHeight: 520}}
       />
+      <View style={{paddingHorizontal: 20}}>
+        <Button
+          onPress={() => {
+            resetFields;
+            navigation.navigate('Input');
+          }}>
+          New Recommendations
+        </Button>
+      </View>
     </View>
   );
 };

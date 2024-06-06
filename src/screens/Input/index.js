@@ -56,6 +56,10 @@ const Input = ({navigation}) => {
     setRows(rows.map(row => (row.id === id ? {...row, [field]: value} : row)));
   };
 
+  const resetFields = () => {
+    setRows([{id: 1, trackName: '', artistName: ''}]);
+  };
+
   // async function for handling
   const onSubmit = async () => {
     try {
@@ -92,14 +96,14 @@ const Input = ({navigation}) => {
         //console.log(`this is artist name ${artistName}`);
         //console.log(`this is track name ${trackName}`);
 
-        console.log(`this is track id ${trackID}`);
+        //console.log(`this is track id ${trackID}`);
 
         // push trackID into allEntries array
         allEntries.push(trackID);
       }
 
       // navigate to results page with allEntries as a route param
-      navigation.navigate('Results', {entries: allEntries});
+      navigation.navigate('Results', {entries: allEntries, resetFields});
     } catch (error) {
       // error if user can't get to results page
 

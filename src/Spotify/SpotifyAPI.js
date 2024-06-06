@@ -38,7 +38,7 @@ const getAccessToken = async () => {
       },
     );
     // return access token
-    console.log('Access Token:', response.data.access_token);
+    //console.log('Access Token:', response.data.access_token);
     return response.data.access_token;
   } catch (error) {
     // error for failing to retrieve access token
@@ -77,7 +77,7 @@ export const getRecs = async tracks => {
   const token = await getAccessToken();
 
   const REC_URL = `https://api.spotify.com/v1/recommendations?seed_tracks=${tracks}&limit=10`;
-  console.log('Recommendation URL:', REC_URL);
+  //console.log('Recommendation URL:', REC_URL);
 
   try {
     // retrieve url as a promise
@@ -87,7 +87,7 @@ export const getRecs = async tracks => {
       },
     });
     // return the json response
-    console.log('Response Data:', response.data);
+    //console.log('Response Data:', response.data);
     return response.data.tracks;
   } catch (error) {
     // error for endpoint failing
