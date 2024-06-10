@@ -23,11 +23,15 @@ const Recommendation = ({
   id,
   onLike,
 }) => {
+  // open url using linking.openURL
   const onLinkPress = url => {
     Linking.openURL(url);
   };
 
+  // state vars for like
   const [like, setLike] = useState(false);
+
+  // determines whether full heart or open heart displayed to user after clicking
 
   const handleLike = () => {
     setLike(!like);

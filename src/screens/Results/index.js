@@ -13,29 +13,39 @@ import Recommendation from '../../components/Recomendation';
 import Button from '../../components/Button';
 
 const Results = ({route, navigation}) => {
-  const {entries, resetFields} = route.params;
+  // array of track ids from input page
+  const {entries} = route.params;
 
+  // state vars recommendations and loading spinner
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchRecs = async () => {
       try {
+        // call get recs function from spotify api, and feed it array of trackids
         const recs = await getRecs(entries.join(','));
+
         //console.log('Fetched Recommendations:', recs);
+
+        // set recommendation state w/ fetched recs
         setRecommendations(recs);
       } catch (error) {
         console.error('Error fetching recommendations:', error);
       } finally {
+        // sets loading state to false after fetching is complete
         setLoading(false);
       }
     };
+
+    // calls fetchRecs function when  component mounts or entries change
 
     fetchRecs();
   }, [entries]);
 
   const handleLike = id => {};
 
+  // renders recommendation component with following attributes
   const renderItem = ({item}) => (
     // track name
     // artist name
@@ -59,6 +69,7 @@ const Results = ({route, navigation}) => {
     />
   );
 
+  // if loading state is true, display loading spinner
   if (loading) {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -93,13 +104,7 @@ const Results = ({route, navigation}) => {
         style={{flexGrow: 3, maxHeight: 520}}
       />
       <View style={{paddingHorizontal: 20}}>
-        <Button
-          onPress={() => {
-            resetFields;
-            navigation.navigate('Input');
-          }}>
-          New Recommendations
-        </Button>
+        <Button>New Recommendations</Button>
       </View>
     </View>
   );
