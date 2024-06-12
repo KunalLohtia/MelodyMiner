@@ -7,11 +7,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
 import Home from '../../screens/Home';
 import Profile from '../../screens/Profile';
+import LogOutButton from '../LogOutButton';
 
 // stack navigator
 const Stack = createStackNavigator();
 
-const StaticBar = () => {
+const StaticBar = ({isProfilePage = false}) => {
   // navigation functions on static bar
   const navigation = useNavigation();
 
@@ -33,10 +34,14 @@ const StaticBar = () => {
             <Text style={styles.title}>Melody Miner</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleProfilePress}>
-            <Image
-              source={require('../../assets/user.png')}
-              style={styles.profileImage}
-            />
+            {isProfilePage ? (
+              <LogOutButton />
+            ) : (
+              <Image
+                source={require('../../assets/user.png')}
+                style={styles.profileImage}
+              />
+            )}
           </TouchableOpacity>
         </View>
       </View>

@@ -6,8 +6,7 @@ import LogOutButton from '../../components/LogOutButton';
 const Profile = () => {
   return (
     <View>
-      <Text>Hi this is profile</Text>
-      <LogOutButton />
+      <StaticBar isProfilePage={true} />
     </View>
   );
 };
