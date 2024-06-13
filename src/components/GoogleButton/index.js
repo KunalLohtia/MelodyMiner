@@ -34,6 +34,7 @@ async function onGoogleButtonPress() {
     await firestore().collection('users').doc(uid).set({
       displayName: displayName,
       email: email,
+      savedSongs: [],
     });
 
     console.log(idToken);

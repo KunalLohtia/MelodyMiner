@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import StaticBar from '../../components/StaticBar';
 import {getRecs} from '../../Spotify/SpotifyAPI';
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 import styles from './styles';
 import Recommendation from '../../components/Recomendation';
 import Button from '../../components/Button';
@@ -19,6 +21,33 @@ const Results = ({route, navigation}) => {
   // state vars recommendations and loading spinner
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const saveSongToUser = async (trackID, remove = false) => {
+    try {
+      // get curr user
+      const currUser = auth().currentUser;
+      // get curr user doct
+      const userDoc = firestore().collection('users').doc(currUser.uid);
+      console.log(`Saving track ID: ${trackID} for user: ${currUser.uid}`);
+
+      // if the heart is tapped to show the unfilled image
+      // remove the trackID from the users saved songs when remove param to true
+      if (remove) {
+        console.log(`Removing track ID: ${trackID}`);
+        await userDoc.update({
+          savedSongs: firestore.FieldValue.arrayRemove(trackID),
+        });
+        // otherwise, if remove param is false, add trackid to firestore array
+      } else {
+        console.log(`Adding track ID: ${trackID}`);
+        await userDoc.update({
+          savedSongs: firestore.FieldValue.arrayUnion(trackID),
+        });
+      }
+    } catch (error) {
+      console.error('Error updating saved songs: ', error);
+    }
+  };
 
   useEffect(() => {
     const fetchRecs = async () => {
@@ -43,7 +72,11 @@ const Results = ({route, navigation}) => {
     fetchRecs();
   }, [entries]);
 
-  const handleLike = id => {};
+  // handlelike onpress function
+  const handleLike = async (trackID, remove) => {
+    console.log(`Track ID: ${trackID}, Remove: ${remove}`);
+    await saveSongToUser(trackID, remove);
+  };
 
   // renders recommendation component with following attributes
   const renderItem = ({item}) => (
@@ -65,7 +98,7 @@ const Results = ({route, navigation}) => {
       previewURL={item.preview_url}
       img={item.album.images[0].url}
       id={item.id}
-      onLike={handleLike}
+      onLike={(id, remove) => handleLike(id, remove)}
     />
   );
 

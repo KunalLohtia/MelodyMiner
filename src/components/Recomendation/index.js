@@ -34,8 +34,11 @@ const Recommendation = ({
   // determines whether full heart or open heart displayed to user after clicking
 
   const handleLike = () => {
-    setLike(!like);
-    onLike(id);
+    const newLikeStatus = !like;
+    setLike(newLikeStatus);
+    console.log(`Track ID: ${id}, Like Status: ${newLikeStatus}`);
+    onLike(id, !newLikeStatus);
+    console.log(`Liking song with ID: ${id}`); // Log the ID
   };
 
   return (

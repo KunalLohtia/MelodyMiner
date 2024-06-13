@@ -8,7 +8,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
 import Home from '../../screens/Home';
 import Profile from '../../screens/Profile';
-import LogOutButton from '../LogOutButton';
 
 // stack navigator
 const Stack = createStackNavigator();

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import {View, Text, FlatList} from 'react-native';
-import LogOutButton from '../../components/LogOutButton';
 import StaticBar from '../../components/StaticBar';
 import styles from './styles';
 import HomeAlbumScroll from '../../components/HomeAlbumScroll';

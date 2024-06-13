@@ -56,6 +56,7 @@ const SignUp = ({navigation}) => {
           .set({
             email: currUser.email,
             displayName: `${Firstname} ${Lastname}`,
+            savedSongs: [],
           });
       })
       // navigates user to home page
