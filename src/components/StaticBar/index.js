@@ -1,4 +1,5 @@
 import React from 'react';
+import auth from '@react-native-firebase/auth';
 import {View, Text, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import {NavigationContainer} from '@react-navigation/native';
@@ -26,6 +27,12 @@ const StaticBar = ({isProfilePage = false}) => {
     navigation.navigate('Profile');
   };
 
+  const logout = () => {
+    auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
+  };
+
   return (
     <SafeAreaView>
       <View style={{flex: 1, backgroundColor: '#fff'}}>
@@ -33,16 +40,22 @@ const StaticBar = ({isProfilePage = false}) => {
           <TouchableOpacity onPress={handleTitlePress}>
             <Text style={styles.title}>Melody Miner</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleProfilePress}>
-            {isProfilePage ? (
-              <LogOutButton />
-            ) : (
+          {isProfilePage ? (
+            <TouchableOpacity onPress={logout}>
+              <Image
+                source={require('../../assets/logout.png')}
+                style={styles.profileImage}
+              />
+            </TouchableOpacity>
+          ) : (
+            //<LogOutButton />
+            <TouchableOpacity onPress={handleProfilePress}>
               <Image
                 source={require('../../assets/user.png')}
                 style={styles.profileImage}
               />
-            )}
-          </TouchableOpacity>
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     </SafeAreaView>
