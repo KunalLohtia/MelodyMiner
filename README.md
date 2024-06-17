@@ -33,8 +33,6 @@ Melody Miner focuses on creating a user-friendly music discovery application tha
  - The Recommendation component updates the UI to reflect liked songs and allows users to remove tracks from their saved list.
  - The Profile page displays saved songs, fetched from Firestore, and allows users to remove songs using a handleDelete function that updates the saved songs array.
 
-Summary: Melody Miner leverages Firebase for robust authentication and user data management, integrates the Spotify API for comprehensive music discovery and recommendation, and offers a seamless user experience through intuitive UI design and efficient state management.
-
 # Setup and Installation
 
 ## Step 1: Clone the Repository:
