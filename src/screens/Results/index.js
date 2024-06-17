@@ -106,7 +106,7 @@ const Results = ({route, navigation}) => {
   if (loading) {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#25434A" />
       </View>
     );
   }
@@ -134,7 +134,7 @@ const Results = ({route, navigation}) => {
         keyExtractor={item => item.id}
         renderItem={renderItem}
         //contentContainerStyle={{padding: 20}}
-        style={{flexGrow: 3, maxHeight: 520}}
+        style={{flexGrow: 3, maxHeight: 580}}
       />
       <View style={{paddingHorizontal: 20}}>
         <Button>New Recommendations</Button>

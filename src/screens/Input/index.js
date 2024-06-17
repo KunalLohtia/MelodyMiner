@@ -8,6 +8,8 @@ import {
   TextInput,
   ScrollView,
   Alert,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import StaticBar from '../../components/StaticBar';
 import TrackInput from '../../components/TrackInput';
@@ -112,10 +114,10 @@ const Input = ({navigation}) => {
   };
 
   return (
-    <View>
+    <SafeAreaView style={{flex: 1}}>
       <StaticBar />
 
-      <View style={{marginTop: 45}}>
+      <View style={{marginTop: 60}}>
         <Text
           style={{
             fontSize: 28,
@@ -134,59 +136,62 @@ const Input = ({navigation}) => {
           fontSize: 19,
           color: '#25434A',
           textAlign: 'center',
-          marginBottom: 25,
+          marginBottom: 35,
         }}>
         Enter Track Names and Artist Names
       </Text>
-      <View
-        style={{
-          flex: 0,
-        }}>
-        <ScrollView
-          style={styles.scrollView}
-          showsVerticalScrollIndicator={false}>
-          {rows.map(row => (
-            // map over rows state array to render trackinput component
-            // and set trackNum prop to be row id to represent which track user is on
 
-            // set event handlers onTrackNameChange and onArtistNameChange to be functions that
-            // take in value and return onInputChange with its updated respective field
-            <TrackInput
-              key={row.id}
-              trackNum={row.id}
-              onTrackNameChange={value =>
-                onInputChange(row.id, 'trackName', value)
-              }
-              onArtistNameChange={value =>
-                onInputChange(row.id, 'artistName', value)
-              }
-            />
-          ))}
-        </ScrollView>
-      </View>
+      <View>
+        <KeyboardAvoidingView
+          style={{flexGrow: 1, maxHeight: 440}}
+          keyboardVerticalOffset={100}
+          behavior={'position'}>
+          <ScrollView
+            style={styles.scrollView}
+            showsVerticalScrollIndicator={true}>
+            {rows.map(row => (
+              // map over rows state array to render trackinput component
+              // and set trackNum prop to be row id to represent which track user is on
 
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          paddingHorizontal: 15,
-        }}>
-        <View style={{flex: 1, marginRight: 5}}>
-          <Button onPress={addRow} type={'blue'}>
-            Add Track
-          </Button>
-        </View>
-        <View style={{flex: 1, marginLeft: 5}}>
-          <Button onPress={removeRow} type={'blue'}>
-            Remove Track
-          </Button>
-        </View>
-      </View>
+              // set event handlers onTrackNameChange and onArtistNameChange to be functions that
+              // take in value and return onInputChange with its updated respective field
+              <TrackInput
+                key={row.id}
+                trackNum={row.id}
+                onTrackNameChange={value =>
+                  onInputChange(row.id, 'trackName', value)
+                }
+                onArtistNameChange={value =>
+                  onInputChange(row.id, 'artistName', value)
+                }
+              />
+            ))}
+          </ScrollView>
 
-      <View style={{paddingHorizontal: 15}}>
-        <Button onPress={onSubmit}>Get Recommendations</Button>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              paddingHorizontal: 15,
+            }}>
+            <View style={{flex: 1, marginRight: 5}}>
+              <Button onPress={addRow} type={'blue'}>
+                Add Track
+              </Button>
+            </View>
+            <View style={{flex: 1, marginLeft: 5}}>
+              <Button onPress={removeRow} type={'blue'}>
+                Remove Track
+              </Button>
+            </View>
+          </View>
+
+          <View style={{paddingHorizontal: 15}}>
+            <Button onPress={onSubmit}>Get Recommendations</Button>
+          </View>
+        </KeyboardAvoidingView>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
