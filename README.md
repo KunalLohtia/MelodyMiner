@@ -41,7 +41,13 @@
  - The Profile page displays saved songs, fetched from Firestore, and allows users to remove songs using a handleDelete function that updates the saved songs array.
 
 ---
+## Screens
 
+![1](Screenshot1.png)
+![2](Screenshot2.png)
+![3](Screenshot3.png)
+
+---
 ## Setup and Installation
 
 1. **Clone the Repository**:
