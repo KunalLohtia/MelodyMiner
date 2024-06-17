@@ -169,24 +169,22 @@ const Input = ({navigation}) => {
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          paddingHorizontal: 20,
+          paddingHorizontal: 15,
         }}>
-        <View style={{flex: 1, marginRight: 10}}>
-          <Button onPress={addRow}>Add Track</Button>
+        <View style={{flex: 1, marginRight: 5}}>
+          <Button onPress={addRow} type={'blue'}>
+            Add Track
+          </Button>
         </View>
-        <View style={{flex: 1, marginLeft: 10}}>
+        <View style={{flex: 1, marginLeft: 5}}>
           <Button onPress={removeRow} type={'blue'}>
             Remove Track
           </Button>
         </View>
       </View>
 
-      <View style={{paddingHorizontal: 20}}>
-        <Button
-          onPress={onSubmit} /*onPress={() => navigation.navigate('Results')}*/
-        >
-          Get Recommendations
-        </Button>
+      <View style={{paddingHorizontal: 15}}>
+        <Button onPress={onSubmit}>Get Recommendations</Button>
       </View>
     </View>
   );

@@ -22,6 +22,9 @@ const Recommendation = ({
   img,
   id,
   onLike,
+  isProfilePage,
+  onDelete,
+  imageStyle,
 }) => {
   // open url using linking.openURL
   const onLinkPress = url => {
@@ -41,6 +44,19 @@ const Recommendation = ({
     console.log(`Liking song with ID: ${id}`); // Log the ID
   };
 
+  const handleDelete = () => {
+    onDelete(id); // call the onDelete function passed as a prop
+  };
+
+  // function to shorten the text in component for easier readability
+
+  const shortenText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return `${text.substring(0, maxLength)}...`;
+    }
+    return text;
+  };
+
   return (
     <View style={styles.container}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -53,15 +69,29 @@ const Recommendation = ({
           }}>
           <Text style={styles.txt1}>
             Track:{' '}
-            <Text style={styles.txt2} onPress={() => onLinkPress(trackURL)}>
-              {trackName}
+            <Text
+              numberOfLines={1}
+              ellipsizeMode="tail"
+              style={styles.txt2}
+              onPress={() => onLinkPress(trackURL)}>
+              {shortenText(trackName, 17)}
             </Text>
           </Text>
-          <Text style={styles.txt1} onPress={() => onLinkPress(artistURL)}>
-            Artist: <Text style={styles.txt2}>{artistName}</Text>
+          <Text
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.txt1}
+            onPress={() => onLinkPress(artistURL)}>
+            Artist:{' '}
+            <Text style={styles.txt2}>{shortenText(artistName, 17)}</Text>
           </Text>
-          <Text style={styles.txt1} onPress={() => onLinkPress(albumURL)}>
-            Album: <Text style={styles.txt2}>{albumName}</Text>
+          <Text
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.txt1}
+            onPress={() => onLinkPress(albumURL)}>
+            Album:{' '}
+            <Text style={styles.txt2}>{shortenText(artistName, 17)}</Text>
           </Text>
         </View>
         <View
@@ -71,14 +101,17 @@ const Recommendation = ({
             right: 1.5,
             paddingRight: 7,
           }}>
-          <TouchableOpacity onPress={handleLike}>
+          <TouchableOpacity onPress={isProfilePage ? handleDelete : handleLike}>
             <Image
               source={
-                like
+                isProfilePage
+                  ? require('../../assets/bin.png') // if isprofilepage prop set to true
+                  : // use the handledelete function to delete the track id and use bin png
+                  like
                   ? require('../../assets/Heart-Filled.png')
                   : require('../../assets/Heart-Not-Filled.png')
               }
-              style={{width: 30, height: 30}}
+              style={[styles.img, imageStyle === '2' ? styles.img2 : {}]}
             />
           </TouchableOpacity>
         </View>

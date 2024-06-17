@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     // borderColor: 'blue',
     flexGrow: 3,
     maxHeight: 475,
+    marginHorizontal: 5,
   },
   buttonContainer: {
     position: 'absolute',

@@ -3,15 +3,13 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     marginBottom: 20,
-    marginHorizontal: 3,
+    marginHorizontal: 10,
     borderColor: '#4A2C25',
     borderWidth: 2,
   },
   image: {
-    width: 150,
-    height: 150,
-    //marginHorizontal: 5,
-    //borderRadius: 5,
+    width: 100,
+    height: 100,
   },
   txt1: {
     fontSize: 13,
@@ -25,6 +23,15 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     textDecorationLine: 'underline',
     color: '#25434A',
+  },
+  img: {
+    width: 25,
+    height: 25,
+  },
+  img2: {
+    width: 20,
+    height: 20,
+    marginTop: 4,
   },
 });
 

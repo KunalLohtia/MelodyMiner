@@ -95,3 +95,27 @@ export const getRecs = async tracks => {
     throw error;
   }
 };
+
+export const getTracks = async tracks => {
+  // access token used as a promise
+  const token = await getAccessToken();
+
+  const URL = `https://api.spotify.com/v1/tracks?ids=${tracks}`;
+  //console.log('URL:', URL);
+
+  try {
+    // retrieve url as a promise
+    const response = await axios.get(URL, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // return the json response
+    //console.log('Response Data:', response.data);
+    return response.data.tracks;
+  } catch (error) {
+    // error for endpoint failing
+    console.error('Error getting recs:', error);
+    throw error;
+  }
+};
