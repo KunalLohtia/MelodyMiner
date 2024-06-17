@@ -45,7 +45,10 @@
 
 ## Screens
 
-
+![Welcome Screen](IMG_2928.jpeg)
+![Track Inputs](IMG_2932.jpeg)
+![Recs](IMG_2933.jpeg)
+![Profile](IMG_2934.jpeg)
 
 ---
 
