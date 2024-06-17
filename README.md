@@ -40,16 +40,6 @@
  - The Recommendation component updates the UI to reflect liked songs and allows users to remove tracks from their saved list.
  - The Profile page displays saved songs, fetched from Firestore, and allows users to remove songs using a handleDelete function that updates the saved songs array.
 
-
----
-
-## Screens
-
-![Welcome Screen](IMG_2928.jpeg)
-![Track Inputs](IMG_2932.jpeg)
-![Recs](IMG_2933.jpeg)
-![Profile](IMG_2934.jpeg)
-
 ---
 
 ## Setup and Installation
