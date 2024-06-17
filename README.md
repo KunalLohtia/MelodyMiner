@@ -43,9 +43,9 @@
 ---
 ## Screens
 
-![1](Screenshot1.png)
-![2](Screenshot2.png)
-![3](Screenshot3.png)
+![1](Screenshot-1.png)
+![2](Screenshot-2.png)
+![3](Screenshot-3.png)
 
 ---
 ## Setup and Installation
