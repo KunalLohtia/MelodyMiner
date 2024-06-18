@@ -3,6 +3,8 @@
 - Melody Miner focuses on creating a user-friendly music discovery application that integrates Firebase for authentication and Firestore for data storage, alongside the Spotify API for fetching and recommending tracks. Here is an overview of the project's development: 
 ---
 
+## Development 
+
 ### User Onboarding and Authentication:
  - The initial phase involved setting up the user interface for onboarding, including stack screens for the Welcome, SignIn, and SignUp pages.
  - The Welcome page features navigation buttons for SignIn and SignUp.
